@@ -1,4 +1,5 @@
 import 'package:basic_sum_app/calculation_functions.dart';
+import 'package:basic_sum_app/helper_funcs.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,12 +39,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 TextFormField(
-                  validator: (value) {
-                    if (value.toString().isEmpty) {
-                      return "Give valid number input";
-                    }
-                    return null;
-                  },
+                  validator: customInputChecker,
                   controller: _textEditingControllerOne,
                   decoration: const InputDecoration(hintText: "Enter number"),
                   keyboardType: TextInputType.number,
@@ -53,12 +49,7 @@ class _HomePageState extends State<HomePage> {
                   height: 16,
                 ),
                 TextFormField(
-                  validator: (value) {
-                    if (value.toString().isEmpty) {
-                      return "Give valid number input";
-                    }
-                    return null;
-                  },
+                  validator: customInputChecker,
                   controller: _textEditingControllerTwo,
                   decoration: const InputDecoration(hintText: "Enter number"),
                   keyboardType: TextInputType.number,
